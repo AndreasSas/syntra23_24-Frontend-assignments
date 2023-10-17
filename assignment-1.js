@@ -60,11 +60,11 @@ function randomRange(min,max){
 // ---------------------------------------------------------------------------------------------------------------------
 class Book {
     pages;
-    titel;
+    title;
     author;
 
     constructor(title, author=null, pages=null) {
-        this.titel = title;
+        this.title = title;
 
         this.author = (author !== null && typeof author === 'string') ? author : generateRandomString(randomRange(6,12));
         this.pages =( pages !== null && Number.isInteger(pages)) ? pages : randomRange(50, 1000);
