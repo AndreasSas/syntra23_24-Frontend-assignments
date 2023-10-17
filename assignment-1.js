@@ -66,8 +66,8 @@ class Book {
     constructor(title, author=null, pages=null) {
         this.titel = title;
 
-        this.author = (author !== null && typeof author === 'string') ? author : generateRandomString(randomRange(6,12))
-        this.pages =( pages !== null && Number.isInteger(pages)) ? pages : randomRange(50, 1000)
+        this.author = (author !== null && typeof author === 'string') ? author : generateRandomString(randomRange(6,12));
+        this.pages =( pages !== null && Number.isInteger(pages)) ? pages : randomRange(50, 1000);
     }
 }
 
@@ -85,7 +85,7 @@ class Library {
     }
 
     removeBookByTitle(book_title){
-        this.books = this.books.filter((book) => book.title !== book_title)
+        this.books = this.books.filter((book) => book.title !== book_title);
     }
 
     getTotalPages(){
@@ -104,14 +104,14 @@ class Library {
     }
 
     printUsefulData(withFullPrintout=false){
-        console.log("There are "+ this.books.length +" books in the library of " + this.owner)
-        console.log("The average pages in the library are " + this.getAveragePagesPerBook())
-        console.log("The total of pages are " + this.getTotalPages())
+        console.log("There are "+ this.books.length +" books in the library of " + this.owner);
+        console.log("The average pages in the library are " + this.getAveragePagesPerBook());
+        console.log("The total of pages are " + this.getTotalPages());
 
         // we don't always need this information
         if (withFullPrintout){
-            console.log("---")
-            console.log(this.books)
+            console.log("---");
+            console.log(this.books);
         }
     }
 }
@@ -119,15 +119,12 @@ class Library {
 // ---------------------------------------------------------------------------------------------------------------------
 // Main section
 // ---------------------------------------------------------------------------------------------------------------------
-const library = new Library("Andreas")
-const booksToAdd = 10
+const library = new Library("Andreas");
+const booksToAdd = 10;
 
 for (let i = 0; i < booksToAdd; i++) {
     // need to i+1 to make the title start from 1 and not zero
-    library.addBook(new Book("title-"+(i+1)))
+    library.addBook(new Book("title-"+(i+1)));
 }
 
-
-
-
-library.printUsefulData(true)
+library.printUsefulData(true);
