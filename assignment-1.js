@@ -55,6 +55,12 @@ function randomRange(min,max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function checkForStringName(name, random_min, random_max){
+    return (name !== null && typeof name === 'string')
+        ? name
+        : generateRandomString(randomRange(random_min,random_max));
+}
+
 // ---------------------------------------------------------------------------------------------------------------------
 // Code
 // ---------------------------------------------------------------------------------------------------------------------
@@ -66,7 +72,7 @@ class Book {
     constructor(title, author=null, pages=null) {
         this.title = title;
 
-        this.author = (author !== null && typeof author === 'string') ? author : generateRandomString(randomRange(6,12));
+        this.author = checkForStringName(author, 6, 12) ;
         this.pages =( pages !== null && Number.isInteger(pages)) ? pages : randomRange(50, 1000);
     }
 }
@@ -75,8 +81,8 @@ class Library {
     owner;
     books; // dictionary
 
-    constructor(owner) {
-        this.owner = owner;
+    constructor(owner=null) {
+        this.owner = checkForStringName(owner, 6, 12);
         this.books = [];
     }
 
